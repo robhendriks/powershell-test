@@ -13,16 +13,16 @@
     GUID              = 'cba8cfbd-46ab-4f5d-b778-1538896a314b'
 
     # Author of this module
-    Author            = 'Rob'
+    Author            = 'Rob Hendriks'
 
     # Company or vendor of this module
-    CompanyName       = 'Unknown'
+    CompanyName       = 'iO'
 
     # Copyright statement for this module
-    Copyright         = '(c) Rob. All rights reserved.'
+    Copyright         = '(c) Rob Hendriks. All rights reserved.'
 
     # Description of the functionality provided by this module
-    # Description = ''
+    Description       = 'Bicep Tools'
 
     # Minimum version of the PowerShell engine required by this module
     # PowerShellVersion = ''
@@ -99,13 +99,13 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @('Bicep')
+            Tags       = @('Bicep')
 
             # A URL to the license for this module.
             # LicenseUri = ''
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/robhendriks/powershell-test'
 
             # A URL to an icon representing this module.
             # IconUri = ''

@@ -13,16 +13,16 @@
     GUID              = 'cba8cfbd-46ab-4f5d-b778-1538896a314b'
 
     # Author of this module
-    Author            = 'iO DevOps'
+    Author            = 'Rob Hendriks'
 
     # Company or vendor of this module
     CompanyName       = 'iO'
 
     # Copyright statement for this module
-    Copyright         = '(c) iO DevOps. All rights reserved.'
+    Copyright         = '(c) Rob Hendriks. All rights reserved.'
 
     # Description of the functionality provided by this module
-    # Description = ''
+    Description       = 'GitHub Tools'
 
     # Minimum version of the PowerShell engine required by this module
     # PowerShellVersion = ''
@@ -98,13 +98,13 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @('GitHub')
+            Tags       = @('GitHub')
 
             # A URL to the license for this module.
             # LicenseUri = ''
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/robhendriks/powershell-test'
 
             # A URL to an icon representing this module.
             # IconUri = ''

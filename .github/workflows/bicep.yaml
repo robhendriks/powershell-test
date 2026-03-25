@@ -1,4 +1,4 @@
-name: Acr Module
+name: Bicep Module
 
 on:
   workflow_dispatch: {}
@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - src/Acr/**
+      - src/Bicep/**
 
 permissions:
   contents: read
@@ -20,5 +20,5 @@ jobs:
   module:
     uses: ./.github/workflows/module-template.yaml
     with:
-      path: src/Acr
+      path: src/Bicep
     secrets: inherit
