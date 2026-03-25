@@ -1,4 +1,5 @@
-name: Markdown Module
+name: Publish Markdown Module
+run-name: Publish Markdown Module
 
 on:
   workflow_dispatch: {}

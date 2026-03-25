@@ -1,4 +1,5 @@
-name: Acr Module
+name: Publish Acr Module
+run-name: Publish Acr Module
 
 on:
   workflow_dispatch: {}
