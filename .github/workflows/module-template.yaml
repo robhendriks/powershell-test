@@ -1,7 +1,7 @@
 on:
   workflow_call:
     inputs:
-      modulePath:
+      path:
         required: true
         type: string
 
@@ -14,4 +14,4 @@ jobs:
 
       - uses: ./.github/actions/templates/pwsh-publish
         with:
-          modulePath: ${{ inputs.modulePath }}
+          path: ${{ inputs.path }}

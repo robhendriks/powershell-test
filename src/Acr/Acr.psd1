@@ -21,13 +21,13 @@
     GUID              = 'd6ff5699-0723-4f1b-a4b0-43ee02ab836a'
 
     # Author of this module
-    Author            = 'rob_hendriks'
+    Author            = 'Rob Hendriks'
 
     # Company or vendor of this module
-    CompanyName       = 'Unknown'
+    CompanyName       = 'iO'
 
     # Copyright statement for this module
-    Copyright         = '(c) rob_hendriks. All rights reserved.'
+    Copyright         = '(c) Rob Hendriks. All rights reserved.'
 
     # Description of the functionality provided by this module
     Description       = 'Azure ACR Tools'

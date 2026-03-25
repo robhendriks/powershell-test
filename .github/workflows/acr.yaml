@@ -20,5 +20,5 @@ jobs:
   module:
     uses: ./.github/workflows/module-template.yaml
     with:
-      modulePath: src/Acr
+      path: src/Acr
     secrets: inherit
