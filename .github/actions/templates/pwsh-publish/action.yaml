@@ -15,18 +15,18 @@ runs:
       shell: pwsh
       env:
         INPUT_PATH: ${{ inputs.path }}
-        GH_REPO_OWNER: ${{ github.repository_owner }}
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPO_OWNER: ${{ github.repository_owner }}
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         $registerParams = @{
             Name = 'GitHub'
-            Uri  = 'https://nuget.pkg.github.com/{0}/index.json' -f $Env:GH_REPO_OWNER
+            Uri  = 'https://nuget.pkg.github.com/{0}/index.json' -f $Env:GITHUB_REPO_OWNER
         }
 
         Register-PSResourceRepository @registerParams
 
-        $pat = ConvertTo-SecureString -String $Env:GH_TOKEN -AsPlainText -Force
-        $cred = [System.Management.Automation.PSCredential]::new($Env:GH_REPO_OWNER, $pat)
+        $pat = ConvertTo-SecureString -String $Env:GITHUB_TOKEN -AsPlainText -Force
+        $cred = [System.Management.Automation.PSCredential]::new($Env:GITHUB_REPO_OWNER, $pat)
 
         $publishParams = @{
             Path       = $Env:INPUT_PATH
