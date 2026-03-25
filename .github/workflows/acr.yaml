@@ -1,0 +1,24 @@
+name: Acr
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+    paths:
+      - src/Acr/**
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  module:
+    uses: ./.github/workflows/module-template.yaml
+    secrets: inherit
+    with:
+      modulePath: src/Acr

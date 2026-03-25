@@ -1,0 +1,37 @@
+name: "Publish PowerShell Module"
+description: ""
+
+inputs:
+  path:
+    description: "Path"
+    required: true
+
+outputs: {}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Publish
+      shell: pwsh
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        GH_ACTOR: ${{ github.actor }}
+        GH_REPO_OWNER: ${{ github.repository_owner }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $repoName = 'GitHubPackages'
+        $repoUri = 'https://nuget.pkg.github.com/{0}/index.json' -f $Env:GH_REPO_OWNER
+
+        $repoToken = ConvertTo-SecureString $Env:GH_TOKEN -AsPlainText -Force
+        $repoCredential = [PSCredential]::new($Env:GH_ACTOR, $repoToken)
+
+        Register-PSResourceRepository `
+            -Name $repoName `
+            -Uri $repoUri `
+            -Trusted `
+            -Credential $repoCredential
+
+        Publish-PSResource `
+            -Path $Env:INPUT_PATH `
+            -Repository $repoName `
+            -Credential $repoCredential
