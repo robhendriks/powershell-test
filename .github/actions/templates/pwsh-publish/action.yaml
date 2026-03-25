@@ -11,7 +11,7 @@ outputs: {}
 runs:
   using: "composite"
   steps:
-    - name: Publish
+    - name: Publish PowerShell Module ${{ inputs.path }}
       shell: pwsh
       env:
         INPUT_PATH: ${{ inputs.path }}

@@ -6,7 +6,8 @@ on:
         type: string
 
 jobs:
-  reusable_workflow_job:
+  publish-module:
+    name: 🚀 Publish
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/actions/templates/pwsh-publish/action.yaml
