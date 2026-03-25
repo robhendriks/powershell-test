@@ -15,23 +15,23 @@ runs:
       shell: pwsh
       env:
         INPUT_PATH: ${{ inputs.path }}
-        GH_ACTOR: ${{ github.actor }}
         GH_REPO_OWNER: ${{ github.repository_owner }}
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        $repoName = 'GitHubPackages'
-        $repoUri = 'https://nuget.pkg.github.com/{0}/index.json' -f $Env:GH_REPO_OWNER
+        $registerParams = @{
+            Name = 'GitHub'
+            Uri  = 'https://nuget.pkg.github.com/{0}/index.json' -f $Env:GH_REPO_OWNER
+        }
 
-        $repoToken = ConvertTo-SecureString $Env:GH_TOKEN -AsPlainText -Force
-        $repoCredential = [PSCredential]::new($Env:GH_ACTOR, $repoToken)
+        Register-PSResourceRepository @registerParams
 
-        Register-PSResourceRepository `
-            -Name $repoName `
-            -Uri $repoUri `
-            -Trusted `
-            -Credential $repoCredential
+        $pat = ConvertTo-SecureString -String $Env:GH_TOKEN -AsPlainText -Force
+        $cred = [System.Management.Automation.PSCredential]::new($Env:GH_REPO_OWNER, $pat)
 
-        Publish-PSResource `
-            -Path $Env:INPUT_PATH `
-            -Repository $repoName `
-            -Credential $repoCredential
+        $publishParams = @{
+            Path       = $Env:INPUT_PATH
+            Repository = 'GitHub'
+            Credential = $cred
+        }
+
+        Publish-PSResource @publishParams
