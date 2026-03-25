@@ -9,6 +9,6 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     steps:
-      - shell: pwsh
-        run: |
-          Write-Host '${{ inputs.modulePath }}'
+      - uses: ./.github/actions/templates/pwsh-publish/action.yaml
+        with:
+          modulePath: ${{ inputs.modulePath }}

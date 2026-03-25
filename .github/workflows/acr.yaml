@@ -19,6 +19,6 @@ concurrency:
 jobs:
   module:
     uses: ./.github/workflows/module-template.yaml
-    secrets: inherit
     with:
       modulePath: src/Acr
+    secrets: inherit
